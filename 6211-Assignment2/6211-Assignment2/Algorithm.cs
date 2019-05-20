@@ -56,8 +56,8 @@ namespace _6211_Assignment2
                     currentLargest = arr[i];
                 }
             }
-            // Add max number to list
             maxNumbersDescending.Add(currentLargest); // This method adds highest number twice. How do I then delete this number from array (or re-assign its value to -1) so next highest number will be found next (and added to maxNumbersDescending list?
+            // Add max number to list
             return currentLargest;
 
             /*
@@ -81,18 +81,19 @@ namespace _6211_Assignment2
             // Display the elements of the array.
             Console.WriteLine("The array contains the following values:");
             for (int i = numbersClone2.GetLowerBound(0); i <= numbersClone2.GetUpperBound(0); i++)
-            Console.WriteLine("   [{0,2}]: {1}", i, numbersClone2[i]);
+            Console.WriteLine("\t[{0,2}]: {1}\t", i, numbersClone2[i]);
 
             // Search for the first occurrence of the duplicated value.
             int searchNum = value1;
             int index = Array.IndexOf(arr, searchNum);
             Console.WriteLine("The first occurrence of \"{0}\" is at index {1}.", searchNum, index);
-
+            /*
             // Search for the user chosen occurrence ('value2') of the value.
             searchNum= value1;
             int searchOccurence = value2;
             index = Array.IndexOf(arr[], searchNum);
             Console.WriteLine("The item {0} has occurence {1} at index {2}.", value1, value2, index);
+            */
         }
 
 
@@ -146,6 +147,13 @@ namespace _6211_Assignment2
                 Console.WriteLine("Key: {0}, Value: {1}",
                 dict.Keys, dict.Values);
             }
+        }
+
+        // QUESTION 3
+        public static int LastOccuranceSearch(int[] arr, int value)
+        {
+            int output = Array.LastIndexOf(arr, value);
+            return output;
         }
     }
 

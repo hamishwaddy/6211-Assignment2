@@ -16,20 +16,18 @@ namespace _6211_Assignment2
             Console.WriteLine("**********************************************************\n\n");
 
             // QUESTION 1
-            Console.WriteLine("QUESTION 1\nYou are required to write a console application with an Algorithm class.\nThis class should contain a Numbers array which contains 50 integer elements.These elements are to be generated at random.\nYou are to write a Display method, which will display the contents of this array to the screen.\nAdd the appropriate code to Main, so the numbers are displayed.");
-            Console.WriteLine("The particular challenge for this question is to then add a findMaximum method to your program that will receive two parameters:\n\tan array\n\tan integer(n = number of maximum elements to be found)\nThis method has the job of displaying the n largest elements in the array it receives and displaying it to the screen as shown in the sample program below.\nNOTE:  Do not use the array sort method to complete this challenge.");
-
-            Console.WriteLine("\n\nOriginal Array");
+            Console.WriteLine("QUESTION 1\n\n");
+            //Console.WriteLine("\n\nOriginal Array");
             Algorithm.CreateDataset(Algorithm.numbers);
-            Algorithm.Display(Algorithm.numbers);
+            //Algorithm.Display(Algorithm.numbers);
             int[] numbersClone = new int[Algorithm.numbers.Length];
             Array.Copy(Algorithm.numbers, numbersClone, Algorithm.numbers.Length);
-            Console.WriteLine("\n\nData clone");
+            Console.WriteLine("Data clone");
             Algorithm.Display(numbersClone);
 
             // testing findmaximum method
             Algorithm.FindMaximum(numbersClone);
-            Console.WriteLine("Largerst number: {0}", Algorithm.FindMaximum(numbersClone));
+            Console.WriteLine("Largest number: {0}", Algorithm.FindMaximum(numbersClone));
 
             // testing maxNumbersDescending list
             Console.WriteLine("\n\nmaxNumbersDescending List");
@@ -44,7 +42,7 @@ namespace _6211_Assignment2
             // QUESTION 2
             int[] numbersClone2 = new int[Algorithm.numbers.Length];
             Array.Copy(Algorithm.numbers, numbersClone2, Algorithm.numbers.Length);
-            Console.WriteLine("\n\n\n*** QUESTION 2 ***\n\n");
+            Console.WriteLine("\n\n\nQUESTION 2\n\n");
             Console.WriteLine("Data Clone 2");
             Algorithm.Display(numbersClone2);
             Console.Write("\nWhat value do you want to find: ");
@@ -52,6 +50,18 @@ namespace _6211_Assignment2
             Console.WriteLine("\nWhich occurence do you want to find");
             int b = int.Parse(Console.ReadLine());
             Algorithm.NumOccurenceSearch(numbersClone2, a, b);
+
+
+            // QUESTION 3
+            int[] numbersClone3 = new int[Algorithm.numbers.Length];
+            Array.Copy(Algorithm.numbers, numbersClone3, Algorithm.numbers.Length);
+            Console.WriteLine("\n\n\nQUESTION 3\n\n");
+            Console.WriteLine("Data Clone 3");
+            Algorithm.Display(numbersClone3);
+            Console.WriteLine("What value do you want to find?");
+            int input = int.Parse(Console.ReadLine());
+            //Algorithm.LastOccuranceSearch(numbersClone3, input);
+            Console.WriteLine($"The item {input} has its last occurance at index: {Algorithm.LastOccuranceSearch(numbersClone3,input)}");
 
 
             Console.ReadLine();
