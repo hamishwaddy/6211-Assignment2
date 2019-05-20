@@ -69,12 +69,150 @@ namespace _6211_Assignment2
                     Console.WriteLine();
             }
             */
+
+
         }
+
+        public static int[] FindMax(int[] arr, int num)
+        {
+
+            /*temp array to preserve original*/
+
+            int[] temp = new int[arr.Length];
+
+            Array.Copy(arr, temp, arr.Length);
+
+            /*Array to hold the max numbers of size user defined size, could be a list.*/
+
+            int[] maxNums = new int[num];
+
+            /*External loop is needed to find the "num" amount of largest values.*/
+
+            for (int number = 0; number < num; number++)
+            {
+                /*variable to hold the location(index) of the max, resets every itteration of the external loop*/
+
+                int maxLoc = 0;
+
+                /*Linear Search*/
+
+                int max = temp[0];
+
+                for (int i = 1; i < temp.Length; i++)
+
+                {
+
+                    if (max < temp[i])
+
+                    {
+
+                        max = temp[i];
+
+                        maxLoc = i;//store the location of the max
+
+                    }
+
+                }
+
+                /*Add the max number to the array using the counter from the external loop and the maxloc variables*/
+
+                maxNums[number] = temp[maxLoc];
+
+                /*Used to test if the correct data is being added to the maximums array*/
+
+                Console.WriteLine($"Temp: {maxNums[number]}\tmaxLoc: {maxLoc}");
+
+                //Console.ReadLine();
+
+                /*Remove the largest number from the dataset so it wont be found again.
+
+                  This could be anything as long as it fits the data type*/
+
+                temp[maxLoc] = -1;
+
+            }
+
+            /*Return the array of maximums to be used in the main*/
+
+            return maxNums;
+
+        }
+
+
 
         // Question 2
 
-        public static void NumOccurenceSearch(int[] arr, int value1, int value2)
+        public static int[] NumOccurenceSearch(int[] arr, int value1, int value2)
         {
+            /*temp array to preserve original*/
+
+            int[] temp = new int[arr.Length];
+
+            Array.Copy(arr, temp, arr.Length);
+
+            /*Array to hold users chosen value (value1) of size user defined size (the occurence they want to search for - value2)*/
+
+            int[] userNum = new int[value2];
+
+            /*External loop is needed to find the users chosen occurence of their chosen number (value 2).*/
+
+            for (int number = 0; number <= value2; number++)
+
+            {
+
+                /*variable to hold the location(index) of value2, resets every itteration of the external loop*/
+
+                int numLoc = 0;
+
+                /*Linear Search*/
+
+                //value1 = temp[0];
+
+                for (int i = 1; i < temp.Length; i++)
+
+                {
+
+                    if (value1 == temp[i])
+
+                    {
+
+                        // max = temp[i];
+
+                        numLoc = i;//store the location of the users num
+
+                    }
+
+                }
+
+                /*Add the value2 number to the array using the counter from the external loop and the numloc variables*/
+
+                userNum[number] = temp[numLoc];
+
+                /*Used to test if the correct data is being added to the users number array*/
+
+                Console.WriteLine($"Temp: {userNum[number]}\tnumLoc: {numLoc}");
+
+                Console.ReadLine();
+
+                /*Remove the users number from the dataset so it wont be found again.
+
+                  This could be anything as long as it fits the data type*/
+
+                temp[numLoc] = -1;
+
+            }
+
+            /*Return the array of users number to be used in the main*/
+
+            return userNum;
+
+
+
+
+
+
+
+            /*
             int[] numbersClone2 = new int[Algorithm.numbers.Length];
             Array.Copy(numbers, numbersClone2, numbers.Length);
             
@@ -87,6 +225,7 @@ namespace _6211_Assignment2
             int searchNum = value1;
             int index = Array.IndexOf(arr, searchNum);
             Console.WriteLine("The first occurrence of \"{0}\" is at index {1}.", searchNum, index);
+            */
             /*
             // Search for the user chosen occurrence ('value2') of the value.
             searchNum= value1;
@@ -139,7 +278,7 @@ namespace _6211_Assignment2
         //    Console.WriteLine("Key: {0}, Value: {1}",
         //    dict.Keys, dict.Values);
         //}
-
+        /*
         public static void DisplayDictionary(Dictionary<int, int> dict)
         {
             foreach (KeyValuePair<int, int> valuePair in dict)
@@ -148,6 +287,7 @@ namespace _6211_Assignment2
                 dict.Keys, dict.Values);
             }
         }
+        */
 
         // QUESTION 3
         public static int LastOccuranceSearch(int[] arr, int value)

@@ -25,6 +25,30 @@ namespace _6211_Assignment2
             Console.WriteLine("Data clone");
             Algorithm.Display(numbersClone);
 
+            Console.Write("\nHow many maximum values would you like to find? ");
+            int n = int.Parse(Console.ReadLine());
+            //Algorithm.FindMaximum(numbersClone, n);
+            //Algorithm.FindMax(numbersClone, n);
+            int[] maxNums = Algorithm.FindMax(numbersClone, n);
+            /* Testing maxNums array */
+            Console.WriteLine("\nTesting maxNums Array");
+            foreach (int x in maxNums)
+            {
+                Console.Write (x + " ");
+            }
+            // NEED TO LOOP THRU maxNums TO DISPLAY ITS ELEMENTS
+            // Console.Write($"The {n} largest elements in array are: {????}");
+            //for (int i = 0; i < maxNums.Length; i++)
+            //{
+            //    Console.Write(i + " ");
+            //}
+
+
+
+
+
+
+            /*
             // testing findmaximum method
             Algorithm.FindMaximum(numbersClone);
             Console.WriteLine("Largest number: {0}", Algorithm.FindMaximum(numbersClone));
@@ -33,16 +57,19 @@ namespace _6211_Assignment2
             Console.WriteLine("\n\nmaxNumbersDescending List");
             Algorithm.DisplayList(Algorithm.maxNumbersDescending);
             Console.WriteLine("\nMax Numbers List count: {0}", Algorithm.maxNumbersDescending.Count());
+            */
 
-            //Console.Write("\nHow many maximum values would you like to find? ");
-            //int n = int.Parse(Console.ReadLine());
-            //Console.WriteLine($"\n\nThe {n} largest elements in array are:");
-            //Algorithm.FindMaximum(numbersClone, n);
+
+
+
+
+
 
             // QUESTION 2
             int[] numbersClone2 = new int[Algorithm.numbers.Length];
             Array.Copy(Algorithm.numbers, numbersClone2, Algorithm.numbers.Length);
             Console.WriteLine("\n\n\nQUESTION 2\n\n");
+
             Console.WriteLine("Data Clone 2");
             Algorithm.Display(numbersClone2);
             Console.Write("\nWhat value do you want to find: ");
@@ -50,6 +77,7 @@ namespace _6211_Assignment2
             Console.WriteLine("\nWhich occurence do you want to find");
             int b = int.Parse(Console.ReadLine());
             Algorithm.NumOccurenceSearch(numbersClone2, a, b);
+            // Console.WriteLine($"The item {a} has occurence {b} at index {???}");
 
 
             // QUESTION 3
