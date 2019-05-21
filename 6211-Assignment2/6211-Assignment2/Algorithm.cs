@@ -44,35 +44,6 @@ namespace _6211_Assignment2
 
         // Question 1
 
-        public static int FindMaximum(int[] arr)
-        {
-            int currentLargest = arr[0];
-            for (int i = 1; i < arr.Length; i++)
-            {
-                // Search array using linear search
-                // Find max number in array
-                if (arr[i] > currentLargest)
-                {
-                    currentLargest = arr[i];
-                }
-            }
-            maxNumbersDescending.Add(currentLargest); // This method adds highest number twice. How do I then delete this number from array (or re-assign its value to -1) so next highest number will be found next (and added to maxNumbersDescending list?
-            // Add max number to list
-            return currentLargest;
-
-            /*
-            // Display n largest numbers
-            for (int i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
-                if ((i + 1) % 25 == 0)
-                    Console.WriteLine();
-            }
-            */
-
-
-        }
-
         public static int[] FindMax(int[] arr, int num)
         {
 
@@ -141,153 +112,55 @@ namespace _6211_Assignment2
 
 
         // Question 2
+        
+        public static string NumOccurenceSearch(int[] arr, int value1, int value2)
 
-        public static int[] NumOccurenceSearch(int[] arr, int value1, int value2)
         {
-            /*temp array to preserve original*/
+            string result = "";//Create a string to hold the result
 
-            int[] temp = new int[arr.Length];
+            /*A list to hold the indices of the selected number*/
 
-            Array.Copy(arr, temp, arr.Length);
+            List<int> occurences = new List<int>();
 
-            /*Array to hold users chosen value (value1) of size user defined size (the occurence they want to search for - value2)*/
 
-            int[] userNum = new int[value2];
+            /*Linear Search Loop to find the numbers occurences, no need to copy the array data isn't altered*/
 
-            /*External loop is needed to find the users chosen occurence of their chosen number (value 2).*/
-
-            for (int number = 0; number <= value2; number++)
+            for (int i = 0; i < arr.Length; i++)
 
             {
 
-                /*variable to hold the location(index) of value2, resets every itteration of the external loop*/
-
-                int numLoc = 0;
-
-                /*Linear Search*/
-
-                //value1 = temp[0];
-
-                for (int i = 1; i < temp.Length; i++)
+                if (arr[i] == value1)
 
                 {
 
-                    if (value1 == temp[i])
+                    /*In here you need to add the code to add the current element of the array to the list*/
+                    occurences.Add(arr[i]);
 
-                    {
-
-                        // max = temp[i];
-
-                        numLoc = i;//store the location of the users num
-
-                    }
-
-                }
-
-                /*Add the value2 number to the array using the counter from the external loop and the numloc variables*/
-
-                userNum[number] = temp[numLoc];
-
-                /*Used to test if the correct data is being added to the users number array*/
-
-                Console.WriteLine($"Temp: {userNum[number]}\tnumLoc: {numLoc}");
-
-                Console.ReadLine();
-
-                /*Remove the users number from the dataset so it wont be found again.
-
-                  This could be anything as long as it fits the data type*/
-
-                temp[numLoc] = -1;
+                }
 
             }
 
-            /*Return the array of users number to be used in the main*/
+            /*Check to see if we found any*/
 
-            return userNum;
+            if (occurences.Count > 0)
 
-
-
-
-
-
-
-            /*
-            int[] numbersClone2 = new int[Algorithm.numbers.Length];
-            Array.Copy(numbers, numbersClone2, numbers.Length);
-            
-            // Display the elements of the array.
-            Console.WriteLine("The array contains the following values:");
-            for (int i = numbersClone2.GetLowerBound(0); i <= numbersClone2.GetUpperBound(0); i++)
-            Console.WriteLine("\t[{0,2}]: {1}\t", i, numbersClone2[i]);
-
-            // Search for the first occurrence of the duplicated value.
-            int searchNum = value1;
-            int index = Array.IndexOf(arr, searchNum);
-            Console.WriteLine("The first occurrence of \"{0}\" is at index {1}.", searchNum, index);
-            */
-            /*
-            // Search for the user chosen occurrence ('value2') of the value.
-            searchNum= value1;
-            int searchOccurence = value2;
-            index = Array.IndexOf(arr[], searchNum);
-            Console.WriteLine("The item {0} has occurence {1} at index {2}.", value1, value2, index);
-            */
-        }
-
-
-        /*
-            foreach (int number in arr)
             {
-                int count;
-                dict.TryGetValue(number, out count);
-                count++;
-                // Replace the entry if it already exists
-                dict[number] = count;
-            }
-            int chosenNumber = 0, ocurrences = 0;
-            foreach (var pair in dict)
+
+                result = $"The item {value1} has ocurrence {value2} at index postion {occurences[value2]}.";//set the string to display the element in the list using value2 as the index, like an array
+
+            }
+
+            else
+
             {
-                if (pair.Value > ocurrences)
-                {
-                    ocurrences = pair.Value;
-                    chosenNumber = pair.Key;
-                }
-            }
-            Console.WriteLine("The chosen number is {0} and it appears {1} times", chosenNumber, ocurrences);
-            */
 
+                result = $"The number {value1} does not occur in the list.";//some response if no occurences are found
 
-        //int indexPosition = 0;
-        ////Display the index of the occurence
-        //for (int i = 0; i < arr.Length; i++)
-        //{
-        //    if (arr[i].Equals(value1))
-        //    {
-        //        arr[i] = indexPosition;
-        //        dict.Add(1, indexPosition);
-        //        // need to increment 'key'
+            }
 
-        //    }
-        //    else
-        //        Console.WriteLine("Your number was not found in the array");
-        //}
-        //Console.WriteLine("The item {0} has occurance {1} at index: {2}", value1, value2, indexPosition);
-        //foreach (KeyValuePair<int, int> valuePair in dict)
-        //{
-        //    Console.WriteLine("Key: {0}, Value: {1}",
-        //    dict.Keys, dict.Values);
-        //}
-        /*
-        public static void DisplayDictionary(Dictionary<int, int> dict)
-        {
-            foreach (KeyValuePair<int, int> valuePair in dict)
-            {
-                Console.WriteLine("Key: {0}, Value: {1}",
-                dict.Keys, dict.Values);
-            }
-        }
-        */
+            return result;//return the string so it can be displayed in the main menu.
+
+        }
 
         // QUESTION 3
         public static int LastOccuranceSearch(int[] arr, int value)
