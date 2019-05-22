@@ -91,9 +91,11 @@ namespace _6211_Assignment2
 
                 /*Used to test if the correct data is being added to the maximums array*/
 
+                /*
                 Console.WriteLine($"Temp: {maxNums[number]}\tmaxLoc: {maxLoc}");
 
-                //Console.ReadLine();
+                Console.ReadLine();
+                */
 
                 /*Remove the largest number from the dataset so it wont be found again.
 
@@ -116,7 +118,7 @@ namespace _6211_Assignment2
         public static string NumOccurenceSearch(int[] arr, int value1, int value2)
 
         {
-            string result = "";//Create a string to hold the result
+            string result = ""; //Create a string to hold the result
 
             /*A list to hold the indices of the selected number*/
 
@@ -133,8 +135,8 @@ namespace _6211_Assignment2
 
                 {
 
-                    /*In here you need to add the code to add the current element of the array to the list*/
-                    occurences.Add(arr[i]);
+                    /* Add the current element of the array to the list */
+                    occurences.Add(i);
 
                 }
 
@@ -146,7 +148,7 @@ namespace _6211_Assignment2
 
             {
 
-                result = $"The item {value1} has ocurrence {value2} at index postion {occurences[value2]}.";//set the string to display the element in the list using value2 as the index, like an array
+                result = $"The item {value1} has ocurrence {value2} at index postion {occurences[(value2)-1]}.";//set the string to display the element in the list using value2 as the index.
 
             }
 
@@ -154,11 +156,11 @@ namespace _6211_Assignment2
 
             {
 
-                result = $"The number {value1} does not occur in the list.";//some response if no occurences are found
+                result = $"The number {value1} does not occur in the list.";// Response if no occurences are found
 
             }
 
-            return result;//return the string so it can be displayed in the main menu.
+            return result;// Return the string so it can be displayed in the main menu.
 
         }
 

@@ -17,9 +17,7 @@ namespace _6211_Assignment2
 
             // QUESTION 1
             Console.WriteLine("QUESTION 1\n\n");
-            //Console.WriteLine("\n\nOriginal Array");
             Algorithm.CreateDataset(Algorithm.numbers);
-            //Algorithm.Display(Algorithm.numbers);
             int[] numbersClone = new int[Algorithm.numbers.Length];
             Array.Copy(Algorithm.numbers, numbersClone, Algorithm.numbers.Length);
             Console.WriteLine("Data clone");
@@ -27,43 +25,12 @@ namespace _6211_Assignment2
 
             Console.Write("\nHow many maximum values would you like to find? ");
             int n = int.Parse(Console.ReadLine());
-            //Algorithm.FindMaximum(numbersClone, n);
-            //Algorithm.FindMax(numbersClone, n);
             int[] maxNums = Algorithm.FindMax(numbersClone, n);
-            //Console.Write($"The {n} largest elements in array are: {maxNums}");
-            /* Testing maxNums array */
-            //Console.WriteLine("\nTesting maxNums Array");
-
-
-            // NEED TO LOOP THRU maxNums TO DISPLAY ITS ELEMENTS
-            //foreach (int x in maxNums)
-            //{
-            //    Console.Write (x + " ");
-            //}
-            // Console.Write($"The {n} largest elements in array are: {????}");
-            //for (int i = 0; i < maxNums.Length; i++)
-            //{
-            //    Console.Write(i + " ");
-            //}
-
-
-
-
-
-
-            /*
-            // testing findmaximum method
-            Algorithm.FindMaximum(numbersClone);
-            Console.WriteLine("Largest number: {0}", Algorithm.FindMaximum(numbersClone));
-
-            // testing maxNumbersDescending list
-            Console.WriteLine("\n\nmaxNumbersDescending List");
-            Algorithm.DisplayList(Algorithm.maxNumbersDescending);
-            Console.WriteLine("\nMax Numbers List count: {0}", Algorithm.maxNumbersDescending.Count());
-            */
-
-
-
+            Console.Write($"The {n} largest elements in array are: ");
+            foreach (int x in maxNums)
+            {
+                Console.Write(x + " ");
+            }
 
 
 
