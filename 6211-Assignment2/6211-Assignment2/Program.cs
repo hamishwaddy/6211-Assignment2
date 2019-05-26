@@ -33,8 +33,6 @@ namespace _6211_Assignment2
             }
 
 
-
-
             // QUESTION 2
             int[] numbersClone2 = new int[Algorithm.numbers.Length];
             Array.Copy(Algorithm.numbers, numbersClone2, Algorithm.numbers.Length);
@@ -56,8 +54,18 @@ namespace _6211_Assignment2
             Algorithm.Display(numbersClone3);
             Console.WriteLine("What value do you want to find?");
             int input = int.Parse(Console.ReadLine());
-            //Algorithm.LastOccuranceSearch(numbersClone3, input);
-            Console.WriteLine($"The item {input} has its last occurance at index: {Algorithm.LastOccuranceSearch(numbersClone3,input)}");
+            Algorithm.LastOccuranceSearch(numbersClone3, input);
+            if (Algorithm.LastOccuranceSearch(numbersClone3, input) != -1)
+            {
+
+                Console.WriteLine($"The item {input} has its last occurance at index: {Algorithm.LastOccuranceSearch(numbersClone3,input)}");
+
+            } else
+            {
+
+                Console.WriteLine($"The item {input} was not found");
+
+            }
 
 
             Console.ReadLine();

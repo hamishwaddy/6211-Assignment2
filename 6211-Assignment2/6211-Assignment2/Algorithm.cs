@@ -118,7 +118,7 @@ namespace _6211_Assignment2
         public static string NumOccurenceSearch(int[] arr, int value1, int value2)
 
         {
-            string result = ""; //Create a string to hold the result
+            string result = ""; // String to hold the result
 
             /*A list to hold the indices of the selected number*/
 
@@ -142,7 +142,7 @@ namespace _6211_Assignment2
 
             }
 
-            /*Check to see if we found any*/
+            /*Check to see if any ocurrences */
 
             if (occurences.Count > 0)
 
@@ -167,8 +167,49 @@ namespace _6211_Assignment2
         // QUESTION 3
         public static int LastOccuranceSearch(int[] arr, int value)
         {
-            int output = Array.LastIndexOf(arr, value);
-            return output;
+            int result; // Int to hold the 'last occurance' result
+
+            /*A list to hold the indices of the selected number*/
+
+            List<int> occurences = new List<int>();
+
+
+            /*Linear Search Loop to find the numbers occurences */
+
+            for (int i = 0; i < arr.Length; i++)
+
+            {
+
+                if (arr[i] == value)
+
+                {
+
+                    /* Add the current element of the array to the list */
+                    occurences.Add(i);
+
+                }
+
+            }
+
+            /*Check to see if any ocurrences */
+
+            if (occurences.Count > 0)
+
+            {
+
+                result = occurences[occurences.Count-1];
+
+            }
+
+            else
+
+            {
+
+                result = -1;
+
+            }
+
+            return result;
         }
     }
 
