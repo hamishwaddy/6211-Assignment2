@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace _6211_Assignment2
 {
@@ -147,9 +148,11 @@ namespace _6211_Assignment2
             if (occurences.Count > 0)
 
             {
-
+                while (occurences.Count<value2)
+                {
+                    return $"The number {value1} does not occur {value2} times.";
+                }
                 result = $"The item {value1} has ocurrence {value2} at index postion {occurences[(value2)-1]}.";//set the string to display the element in the list using value2 as the index.
-
             }
 
             else
@@ -211,7 +214,68 @@ namespace _6211_Assignment2
 
             return result;
         }
+
+
+        // QUESTION 4
+
+        public static long bubbleSort(int[] arr)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            // External loop to check all of array
+            for (int i = 0; i < arr.Length-1; i++)
+            {
+                // Internal loop to go thru elements and check each one
+                for (int j = 0; j < arr.Length-1; j++)
+                {
+                    // If current element is larger, swap
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int temp = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            stopwatch.Stop();
+            return stopwatch.ElapsedTicks;
+        }
+
+        public static long improvedBubbleSort(int[] arr)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            bool swap = true;
+            // External loop to check all of array
+            for (int i = 0; i < arr.Length-1; i++)
+            {
+                swap = false;
+                // Internal loop goes thru elements, checks each and subtracts i as the largest element
+                for (int j = 0; j < arr.Length-1-i; j++)
+                {
+                    // If current element is larger, swap them
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int temp = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = temp;
+                        // Check if any swaps have been made for data in near order
+                        swap = true;
+                    }
+                }
+                // If no swaps, break
+                if (!swap)
+                    break;
+            }
+            // Return time to sort array
+            stopwatch.Stop();
+            return stopwatch.ElapsedTicks;
+        }
+
+
     }
 
-        
+
 }
